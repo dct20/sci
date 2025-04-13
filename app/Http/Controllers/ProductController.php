@@ -1,50 +1,57 @@
 <?php
-require_once 'db.php'; 
 
-class ProductController {
-
-    public function index() {
-        global $conn;
-        $query = "SELECT * FROM products";
-        $result = mysqli_query($conn, $query);
-        return $result;
+class ProductController
+{
+    public function index()
+    {
+        $products = $this->getAllProducts();
+        require_once 'views/products/index.blade.php';
     }
 
-    public function store($data) {
-        global $conn;
-        $name = $data['nombre'];
-        $description = $data['descripcion'];
-        $price = $data['precio'];
-        $stock = $data['cantidad_en_stock'];
-
-        $query = "INSERT INTO products (nombre, descripcion, precio, cantidad_en_stock) 
-                  VALUES ('$name', '$description', $price, $stock)";
-        return mysqli_query($conn, $query);
+    public function create()
+    {
+        require_once 'views/products/create.blade.php';
     }
 
-    public function update($id, $data) {
-        global $conn;
-        $name = $data['nombre'];
-        $description = $data['descripcion'];
-        $price = $data['precio'];
-        $stock = $data['cantidad_en_stock'];
-
-        $query = "UPDATE products SET 
-                  nombre='$name', descripcion='$description', precio=$price, cantidad_en_stock=$stock 
-                  WHERE id=$id";
-        return mysqli_query($conn, $query);
+    public function store()
+    {
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $stock = $_POST['stock'];
+        header("Location: /products");
     }
 
-    public function delete($id) {
-        global $conn;
-        $query = "DELETE FROM products WHERE id=$id";
-        return mysqli_query($conn, $query);
+    public function edit($id)
+    {
+        $product = $this->getProductById($id);
+        require_once 'views/products/edit.blade.php';
     }
 
-    public function show($id) {
-        global $conn;
-        $query = "SELECT * FROM products WHERE id=$id";
-        return mysqli_query($conn, $query);
+    public function update($id)
+    {
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $stock = $_POST['stock'];
+        header("Location: /products");
+    }
+
+    public function destroy($id)
+    {
+        header("Location: /products");
+    }
+
+    private function getAllProducts()
+    {
+        return [
+            ['id' => 1, 'name' => 'Producto 1', 'description' => 'Descripción 1', 'price' => 20.00, 'stock' => 100],
+            ['id' => 2, 'name' => 'Producto 2', 'description' => 'Descripción 2', 'price' => 15.00, 'stock' => 50]
+        ];
+    }
+
+    private function getProductById($id)
+    {
+        return ['id' => 1, 'name' => 'Producto 1', 'description' => 'Descripción del producto 1', 'price' => 20.00, 'stock' => 100];
     }
 }
-?>
