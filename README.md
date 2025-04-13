@@ -21,12 +21,5 @@ El Sistema de Control de Inventario (SCI) es una aplicación para gestionar prod
 2. **Estructura del Proyecto**:
    - Asegúrate de tener las carpetas y archivos adecuados según el diseño del proyecto.
 
-## Instrucciones
-1. Clona este repositorio en tu máquina local.
-2. Ejecuta los scripts de base de datos en PhpMyAdmin.
-3. Asegúrate de que el servidor web esté corriendo (usando XAMPP o el que prefieras).
-4. Configura los detalles en el archivo `.env` (si es necesario).
-5. ¡Disfruta del sistema!
 
-## Notas
-- Este proyecto no utiliza Laravel ni Composer, todo está hecho manualmente.
+
