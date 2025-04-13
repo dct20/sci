@@ -1,57 +1,45 @@
 <?php
 
-class ProductController
+namespace App\Http\Controllers;
+
+use App\Models\Product;
+use Illuminate\Http\Request;
+
+class ProductController extends Controller
 {
     public function index()
     {
-        $products = $this->getAllProducts();
-        require_once 'views/products/index.blade.php';
+        $productos = Product::all();
+        return view('productos.index', compact('productos'));
     }
 
     public function create()
     {
-        require_once 'views/products/create.blade.php';
+        return view('productos.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-        $price = $_POST['price'];
-        $stock = $_POST['stock'];
-        header("Location: /products");
+        Product::create($request->all());
+        return redirect()->route('productos.index')->with('success', 'Producto creado correctamente.');
     }
 
     public function edit($id)
     {
-        $product = $this->getProductById($id);
-        require_once 'views/products/edit.blade.php';
+        $producto = Product::findOrFail($id);
+        return view('productos.edit', compact('producto'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        $name = $_POST['name'];
-        $description = $_POST['description'];
-        $price = $_POST['price'];
-        $stock = $_POST['stock'];
-        header("Location: /products");
+        $producto = Product::findOrFail($id);
+        $producto->update($request->all());
+        return redirect()->route('productos.index')->with('success', 'Producto actualizado correctamente.');
     }
 
     public function destroy($id)
     {
-        header("Location: /products");
-    }
-
-    private function getAllProducts()
-    {
-        return [
-            ['id' => 1, 'name' => 'Producto 1', 'description' => 'Descripción 1', 'price' => 20.00, 'stock' => 100],
-            ['id' => 2, 'name' => 'Producto 2', 'description' => 'Descripción 2', 'price' => 15.00, 'stock' => 50]
-        ];
-    }
-
-    private function getProductById($id)
-    {
-        return ['id' => 1, 'name' => 'Producto 1', 'description' => 'Descripción del producto 1', 'price' => 20.00, 'stock' => 100];
+        Product::destroy($id);
+        return redirect()->route('productos.index')->with('success', 'Producto eliminado correctamente.');
     }
 }
