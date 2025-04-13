@@ -1,59 +1,21 @@
-# Sistema de Control de Inventario (SCI)
+Sistema de Control de Inventario (SCI)
+Descripción
+Este proyecto es un sistema para gestionar productos, proveedores y órdenes de compra. Se puede crear, leer, actualizar y eliminar (CRUD) cada una de estas entidades.
 
-## Descripción
-El Sistema de Control de Inventario (SCI) es una aplicación para gestionar productos, proveedores y órdenes de compra. Permite realizar operaciones CRUD para estas entidades.
+Requisitos
+Para ejecutar el proyecto, necesitas tener PHP 8.x o superior, XAMPP (o algún servidor con soporte para PHP y MySQL), PhpMyAdmin para gestionar la base de datos, Visual Studio Code para editar el código y Git para el control de versiones.
 
-## Requisitos
-- PHP
-- XAMPP o similar para el servidor web y base de datos
-- PhpMyAdmin para gestionar la base de datos
-
-## Configuración
-
-1. **Base de Datos**:
-   - Crear las tablas `products`, `providers`, `purchase_orders` en PhpMyAdmin con los siguientes scripts:
-
-   **scripts SQL**:
-   - [script de productos]
-   - [script de proveedores]
-   - [script de órdenes de compra]
-
-2. **Estructura del Proyecto**:
-   - Asegúrate de tener las carpetas y archivos adecuados según el diseño del proyecto.
-
-# 
-
-Este proyecto corresponde al Examen Consolidado 2 de Tecnología Web Backend. Su objetivo es gestionar productos, proveedores y órdenes de compra.
-
-Inicialmente se planeó realizar con Laravel 11 y Laravel Breeze para autenticación. Sin embargo, debido a dificultades técnicas con Composer y la instalación de dependencias, el sistema fue implementado de forma **manual con PHP puro**, usando PhpMyAdmin para la base de datos y XAMPP como entorno local.
-
----
-
-## 📦 Tecnologías Usadas
-
-- PHP 8.x
-- PhpMyAdmin (MySQL)
-- XAMPP
-- Visual Studio Code
-- Git & GitHub
-
----
-
-## Configuración del Proyecto
-
-###
-
-- Tener instalado XAMPP
-- Tener Visual Studio Code
-- Tener Git
-
----
-
-### Configuración del entorno
-
-Clona el repositorio o copia la carpeta del proyecto en `C:\xampp\htdocs`:
-
-   ```bash
-   C:\xampp\htdocs\sci-laravel
+Configuración
+Para ponerlo en marcha, solo tienes que clonar el repositorio 
 
 
+Tecnologías Usadas
+PHP, PhpMyAdmin, XAMPP, Visual Studio Code, Git & GitHub.
+
+Problemas Encontrados
+Dificultades con Composer: Hubo problemas con la instalación de dependencias, así que opté por usar PHP puro.
+
+Adaptación del Proyecto: La autenticación y otros servicios los implementé manualmente debido a las dificultades con Composer.
+
+Contribuciones
+Este proyecto lo hice como parte del Examen Consolidado 2 
