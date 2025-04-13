@@ -21,5 +21,39 @@ El Sistema de Control de Inventario (SCI) es una aplicación para gestionar prod
 2. **Estructura del Proyecto**:
    - Asegúrate de tener las carpetas y archivos adecuados según el diseño del proyecto.
 
+# 
+
+Este proyecto corresponde al Examen Consolidado 2 de Tecnología Web Backend. Su objetivo es gestionar productos, proveedores y órdenes de compra.
+
+Inicialmente se planeó realizar con Laravel 11 y Laravel Breeze para autenticación. Sin embargo, debido a dificultades técnicas con Composer y la instalación de dependencias, el sistema fue implementado de forma **manual con PHP puro**, usando PhpMyAdmin para la base de datos y XAMPP como entorno local.
+
+---
+
+## 📦 Tecnologías Usadas
+
+- PHP 8.x
+- PhpMyAdmin (MySQL)
+- XAMPP
+- Visual Studio Code
+- Git & GitHub
+
+---
+
+## Configuración del Proyecto
+
+###
+
+- Tener instalado XAMPP
+- Tener Visual Studio Code
+- Tener Git
+
+---
+
+### Configuración del entorno
+
+Clona el repositorio o copia la carpeta del proyecto en `C:\xampp\htdocs`:
+
+   ```bash
+   C:\xampp\htdocs\sci-laravel
 
 
